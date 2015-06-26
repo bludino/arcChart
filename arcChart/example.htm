@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>arcChart.js</title>
+	<style>
+		body {
+			background-color: #303030;
+		}
+
+		.canvas {
+			display: inline-block;
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="canvasOne" class="canvas"></div>
+	<div id="canvasTwo" class="canvas"></div>
+	<div id="canvasThree" class="canvas"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="arcChart.min.js"></script>
+	<script>
+		arcChart('canvasOne', 100);
+
+		arcChart('canvasTwo', 56, {
+			arcRadius: 50,
+			canvasHeight: 110,
+			canvasWidth: 110,
+			color: '#79CCE3',
+			fontSize: '30px',
+			lineWidth: 4,
+			maxVal: 75,
+			textSuffix: "\u25BC"
+		});
+
+		arcChart('canvasThree', 27.62, {
+			color: '#99E8C0',
+			decimalPlaces: 2,
+			duration: 7500,
+			glow: true,
+			maxVal: 50,
+			textPrefix: "£"
+		});
+	</script>
+</body>
+</html>
