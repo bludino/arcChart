@@ -63,7 +63,7 @@ There are numerous options that you can configure. The following list demonstrat
         fontFamily: 'Arial',       // Alter typeface of text
         fontSize: 'auto',          // Alter text size { 'auto' adjusts size based on length of value. Include units if not auto - e.g. 2em, 15px }
         glow: false,               // Add glow effect to arc { true || false }
-        glowSpread: 10,        	// Alter size of glow effect blur if glow = true
+        glowSpread: 10,        	   // Alter size of glow effect blur if glow = true
         lineCap: 'square',         // Alter end shape of arc { square || round }
         lineWidth: 8,              // Alter thickness of arc
         maxVal: 100,               // The value that would represent 100% completion of the arc
