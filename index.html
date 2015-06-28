@@ -1,1 +1,115 @@
-<h1>arcChart.js</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>arcChart.js</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="jumbotron text-center">
+		<div class="container">
+			<h1>arcChart<span class="text-muted">.js</span></h1>
+			<p>JavaScript plugin that renders an animated arc with incrementing value inside a HTML5 canvas</p>
+			<p>
+				<a href="https://github.com/bludino/arcChart" class="btn btn-success btn-lg">
+					<i class="fa fa-github"></i> View Project
+				</a>
+				<a href="https://github.com/bludino/arcChart/archive/master.zip" class="btn btn-primary btn-lg">
+					<i class="fa fa-download"></i> Download
+				</a>
+			</p>
+		</div>
+	</div>
+
+	<div class="container">
+		<section>
+			<h2>Example Usage 1</h2>
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-2">
+<pre>&lt;<span class="tag">script</span>&gt;
+    arcChart(<span class="string">'canvas'</span>, <span class="number">100</span>);
+&lt;/<span class="tag">script</span>&gt;</pre>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-2">
+					<div id="canvasOne"></div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Example Usage 2</h2>
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-2">
+<pre>&lt;<span class="tag">script</span>&gt;
+    arcChart(<span class="string">'canvas'</span>, <span class="number">56</span>, {
+        arcRadius: <span class="number">50</span>,
+        canvasHeight: <span class="number">110</span>,
+        canvasWidth: <span class="number">110</span>,
+        color: <span class="string">'#79CCE3'</span>,
+        fontSize: <span class="string">'30px'</span>,
+        lineWidth: <span class="number">4</span>,
+        maxVal: <span class="number">75</span>,
+        textSuffix: <span class="string">"\u25BC"</span>
+    });
+&lt;/<span class="tag">script</span>&gt;</pre>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-2">
+					<div id="canvasTwo"></div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>Example Usage 3</h2>
+			<div class="row">
+				<div class="col-xs-12 col-sm-8 col-md-6 col-md-offset-2">
+<pre>&lt;<span class="tag">script</span>&gt;
+    arcChart(<span class="string">'canvas'</span>, <span class="number">27.62</span>, {
+        color: <span class="string">'#99E8C0'</span>,
+        decimalPlaces: <span class="number">2</span>,
+        duration: <span class="number">7500</span>,
+        glow: <span class="number">true</span>,
+        maxVal: <span class="number">50</span>,
+        textPrefix: <span class="string">"£"</span>
+    });
+&lt;/<span class="tag">script</span>&gt;</pre>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-2">
+					<div id="canvasThree"></div>
+				</div>
+			</div>
+		</section>		
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="arcChart.min.js"></script>
+
+	<script>
+		arcChart('canvasOne', 100);
+
+		arcChart('canvasTwo', 56, {
+			arcRadius: 50,
+			canvasHeight: 110,
+			canvasWidth: 110,
+			color: '#79CCE3',
+			fontSize: '30px',
+			lineWidth: 4,
+			maxVal: 75,
+			textSuffix: "\u25BC"
+		});
+
+		arcChart('canvasThree', 27.62, {
+			color: '#99E8C0',
+			decimalPlaces: 2,
+			duration: 7500,
+			glow: true,
+			maxVal: 50,
+			textPrefix: "£"
+		});
+	</script>
+</body>
+</html>

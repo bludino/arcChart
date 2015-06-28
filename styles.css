@@ -1,0 +1,43 @@
+body {
+	background-color:#303030;
+}
+
+section {
+	border-bottom: 1px dotted #7C7C7C;
+	margin-bottom: 40px;
+	padding-bottom: 10px;
+}
+
+h2 {
+	color: #FFF;
+}
+
+canvas {
+	display: block;
+	margin: 0 auto;
+}
+
+pre {
+	color: #E7E7E7;
+	background-color: #3A3A3A;
+	border: 1px solid #525252;
+}
+
+pre .string {
+	color: #EFF999;
+}
+
+pre .number {
+	color: #C399F9;
+}
+
+pre .tag {
+	color: #D32A71;
+}
+
+@media screen and (min-width: 992px)
+{
+	h2 {
+		text-align: center;
+	}
+}

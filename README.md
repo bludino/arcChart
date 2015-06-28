@@ -1,7 +1,7 @@
 arcChart.js
 ========
 
-arcChart.js is a JavaScript plugin that uses jQuery's animate function to render an animated arc with incrementing value inside a HTML5 canvas. It requires jQuery and jQueryUI in order to function.
+arcChart.js is a JavaScript plugin that uses jQuery's animate function to render an animated arc with incrementing value inside a HTML5 canvas. It requires jQuery and jQueryUI in order to function. Please view the [demo of arcChart.js](http://bludino.github.io/arcChart/) to see it in action.
 
 Cross-browser support includes IE9+, Firefox, Chrome, Safari and Opera (if you need to support IE8, arcChart-ie8.js is bundled*)
 
@@ -63,7 +63,7 @@ There are numerous options that you can configure. The following list demonstrat
         fontFamily: 'Arial',       // Alter typeface of text
         fontSize: 'auto',          // Alter text size { 'auto' adjusts size based on length of value. Include units if not auto - e.g. 2em, 15px }
         glow: false,               // Add glow effect to arc { true || false }
-        glowSpread: 10,        	// Alter size of glow effect blur if glow = true
+        glowSpread: 10,        	   // Alter size of glow effect blur if glow = true
         lineCap: 'square',         // Alter end shape of arc { square || round }
         lineWidth: 8,              // Alter thickness of arc
         maxVal: 100,               // The value that would represent 100% completion of the arc
