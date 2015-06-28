@@ -1,3 +1,14 @@
+/*
+ * arcChart.js
+ *
+ * Copyright (c) 2015 Philip Dootson and Andrew Berry
+ * licensed under BSD license.
+ *
+ * http://bludino.github.io/arcChart/
+ *
+ * Version: 0.1.0
+ */
+
 function arcChart(divID, val, setOptions)
 {
 	// Set options and default values for function

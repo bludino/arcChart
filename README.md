@@ -1,7 +1,7 @@
 arcChart.js
 ========
 
-arcChart.js is a JavaScript plugin that uses jQuery's animate function to render an animated arc with incrementing value inside a HTML5 canvas. It requires jQuery and jQueryUI in order to function.
+arcChart.js is a JavaScript plugin that uses jQuery's animate function to render an animated arc with incrementing value inside a HTML5 canvas. It requires jQuery and jQueryUI in order to function. Please view the [demo of arcChart.js](http://bludino.github.io/arcChart/) to see it in action.
 
 Cross-browser support includes IE9+, Firefox, Chrome, Safari and Opera (if you need to support IE8, arcChart-ie8.js is bundled*)
 
