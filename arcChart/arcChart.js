@@ -30,7 +30,8 @@ function arcChart(divID, val, setOptions)
 		maxVal: 100,			// The value that would represent 100% completion of the arc
 		numSeparator: true,		// Set whether number separators are displayed between each '000' { true || false }
 		textPrefix: '',			// Add a prefix to the text { e.g. £ }
-		textSuffix: ''			// Add a suffix to the text { e.g. % }
+		textSuffix: '',			// Add a suffix to the text { e.g. % }
+		viewPortDelay: true		// Delays the animation of the arcChart until it enters the viewport
 	}, setOptions);
 
 
@@ -61,17 +62,18 @@ function arcChart(divID, val, setOptions)
 	context.textAlign = 'center';
 	context.textBaseline = 'middle';
 
-	// Animate number from zero to supplied value, along with arc
-	$({someValue: 0}).animate({someValue: val}, {
-	    duration: options.duration,
-	    easing: options.easing,
-	    step: function() {
-	        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
-	    },
-	    complete:function(){
-	        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
-	    }
-	});
+	// Animate arch and number
+	if(options.viewPortDelay){
+		var waypoints = $("#" + divID).waypoint(function(direction) {
+	   			animate();
+	   			this.destroy();
+	  		}, {
+		  		offset: 'bottom-in-view',
+			});
+	}else{
+		animate();
+	}
+	
 
 	// Automatically calculate text size within arc
 	function autoTextSize()
@@ -91,6 +93,20 @@ function arcChart(divID, val, setOptions)
 		var textSize = (q * options.arcRadius) / displayChars;
 
 		return textSize;
+	}
+
+	// Animate number from zero to supplied value, along with arc
+	function animate(){
+		$({someValue: 0}).animate({someValue: val}, {
+		    duration: options.duration,
+		    easing: options.easing,
+		    step: function() {
+		        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
+		    },
+		    complete:function(){
+		        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
+		    }
+		});
 	}
 
 	// Clear canvas, update text value and draw arc around the text

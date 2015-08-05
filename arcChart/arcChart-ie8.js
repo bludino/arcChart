@@ -30,7 +30,8 @@ function arcChart(divID, val, setOptions)
 		maxVal: 100,			// The value that would represent 100% completion of the arc
 		numSeparator: true,		// Set whether number separators are displayed between each '000' { true || false }
 		textPrefix: '',			// Add a prefix to the text { e.g. £ }
-		textSuffix: ''			// Add a suffix to the text { e.g. % }
+		textSuffix: '',			// Add a suffix to the text { e.g. % }
+		viewPortDelay: true		// Delays the animation of the arcChart until it enters the viewport { requires jquery.waypoints.js }
 	}, setOptions);
 
 	// Check browser for canvas support
@@ -64,35 +65,16 @@ function arcChart(divID, val, setOptions)
 	context.textAlign = 'center';
 	context.textBaseline = 'middle';
 
-	// If browser supports canvas animate number from zero to supplied value, along with arc
-	if (canvasTest == true)
-	{
-		$({someValue: 0}).animate({someValue: val}, {
-		    duration: options.duration,
-		    easing: options.easing,
-		    step: function() {
-		        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
-		    },
-		    complete:function(){
-		        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
-		    }
-		});
-	}
-	else
-	{
-		// Draw final value without the animation, using switch to rectify bug caused when utilising excanvas
-		var ratio = val / options.maxVal;
-		switch (ratio) {
-			case 1:
-				drawCanvas(val.toFixed(options.decimalPlaces), 0.9999);
-				break;
-			case 0:
-				drawCanvas(val.toFixed(options.decimalPlaces), 0.0001);
-				break;
-			default:
-				drawCanvas(val.toFixed(options.decimalPlaces), ratio);
-		}
-		
+	// Animate arch and number if possible
+	if(options.viewPortDelay){
+		var waypoints = $("#" + divID).waypoint(function(direction) {
+	   			animate();
+	   			this.destroy();
+	  		}, {
+		  		offset: 'bottom-in-view',
+			});
+	}else{
+		animate();
 	}
 
 	// Automatically calculate text size within arc
@@ -113,6 +95,38 @@ function arcChart(divID, val, setOptions)
 		var textSize = (q * options.arcRadius) / displayChars;
 
 		return textSize;
+	}
+
+	function animate(){
+		// If browser supports canvas animate number from zero to supplied value, along with arc
+		if (canvasTest == true)
+		{
+			$({someValue: 0}).animate({someValue: val}, {
+			    duration: options.duration,
+			    easing: options.easing,
+			    step: function() {
+			        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
+			    },
+			    complete:function(){
+			        drawCanvas(this.someValue.toFixed(options.decimalPlaces), this.someValue / options.maxVal);
+			    }
+			});
+		}
+		else
+		{
+			// Draw final value without the animation, using switch to rectify bug caused when utilising excanvas
+			var ratio = val / options.maxVal;
+			switch (ratio) {
+				case 1:
+					drawCanvas(val.toFixed(options.decimalPlaces), 0.9999);
+					break;
+				case 0:
+					drawCanvas(val.toFixed(options.decimalPlaces), 0.0001);
+					break;
+				default:
+					drawCanvas(val.toFixed(options.decimalPlaces), ratio);
+			}
+		}
 	}
 
 	// Clear canvas, update text value and draw arc around the text
