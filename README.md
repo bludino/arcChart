@@ -3,7 +3,9 @@ arcChart.js
 
 arcChart.js is a JavaScript plugin that uses jQuery's animate function to render an animated arc with incrementing value inside a HTML5 canvas. It requires jQuery and jQueryUI in order to function. Please view the [demo of arcChart.js](http://bludino.github.io/arcChart/) to see it in action.
 
-Cross-browser support includes IE9+, Firefox, Chrome, Safari and Opera
+arcChart.js uses [Caleb Troughton's waypoints.js](https://github.com/imakewebthings/waypoints) to delay animation until the chart is in the viewport.
+
+Supports IE9+ and all major browsers.
 
 Example Usage
 --------
@@ -19,6 +21,7 @@ This is the bare minimum you need to use arcChart.js
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="jquery.waypoints.min.js"></script>
         <script src="arcChart.min.js"></script>
         <script>
             arcChart('canvas', 100);

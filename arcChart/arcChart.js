@@ -63,21 +63,20 @@ function arcChart(divID, val, setOptions)
 	context.textBaseline = 'middle';
 
 	// Animate arch and number
-	if(options.viewPortDelay){
+	if (options.viewPortDelay) {
 		var waypoints = $("#" + divID).waypoint(function(direction) {
 	   			animate();
 	   			this.destroy();
 	  		}, {
 		  		offset: 'bottom-in-view',
 			});
-	}else{
+	} else {
 		animate();
 	}
 	
 
 	// Automatically calculate text size within arc
-	function autoTextSize()
-	{
+	function autoTextSize() {
 		var inputChars = 
 				options.maxVal.toString().length +
 				options.textPrefix.length +
@@ -96,7 +95,7 @@ function arcChart(divID, val, setOptions)
 	}
 
 	// Animate number from zero to supplied value, along with arc
-	function animate(){
+	function animate() {
 		$({someValue: 0}).animate({someValue: val}, {
 		    duration: options.duration,
 		    easing: options.easing,
@@ -110,29 +109,25 @@ function arcChart(divID, val, setOptions)
 	}
 
 	// Clear canvas, update text value and draw arc around the text
-	function drawCanvas(val, current)
-	{
+	function drawCanvas(val, current) {
 		context.clearRect (0 , 0 , canvas.width, canvas.height);
 	    context.fillText(options.textPrefix + (options.numSeparator ? commaSeparateNumber(val) : val) + options.textSuffix, x, y);
 
 		context.beginPath();
-		if (options.glow)
-		{
+		if (options.glow) {
 			context.shadowBlur = options.glowSpread;
 			context.shadowColor = options.color;
 		}
 		context.arc(x, y, options.arcRadius, -(quart), ((circ) * current) - quart, false);
 		context.stroke();
-		if (options.glow)
-		{
+		if (options.glow) {
 			context.shadowBlur = 0;
 		}
 	}
 
 	// Add comma separators for thousands, millions, etc.
-	function commaSeparateNumber(val)
-	{
-	    while (/(\d+)(\d{3})/.test(val.toString())){
+	function commaSeparateNumber(val) {
+	    while (/(\d+)(\d{3})/.test(val.toString())) {
 		    val = val.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 	    }
 
