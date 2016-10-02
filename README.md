@@ -3,9 +3,7 @@ arcChart.js
 
 arcChart.js is a JavaScript plugin that uses jQuery's animate function to render an animated arc with incrementing value inside a HTML5 canvas. It requires jQuery and jQueryUI in order to function. Please view the [demo of arcChart.js](http://bludino.github.io/arcChart/) to see it in action.
 
-Cross-browser support includes IE9+, Firefox, Chrome, Safari and Opera (if you need to support IE8, arcChart-ie8.js is bundled*)
-
-**To support IE8 you will also need to include Modernizr and excanvas (bundled). See IE8 demo below*
+Cross-browser support includes IE9+, Firefox, Chrome, Safari and Opera
 
 Example Usage
 --------
@@ -73,37 +71,6 @@ var options = $.extend({
     viewPortDelay: true        // Delays the animation of the arcChart until it enters the viewport { requires jquery.waypoints.js }
 }, setOptions);
 ```
-
-Example Usage - IE8
---------
-
-To display the canvas in IE8, arcChart.js needs a little help. This comes in the form of Modernizr and excanvas, both of which are bundled with this plugin. Include references to these within the &lt;head&gt; tags of your html when building your page.
-
-You will also need to switch the version of *arcChart.js* to *arcChart-ie8.js* and ensure that you are using a version of jQuery that supports IE8 (version 1.xx.x) . *arcChart-ie8.js* works in much the same way as the original, adding extra functionality to allow IE8 to render the canvas.
-
-Due to buggy performance when attempting to animate on a HTML5 canvas in browsers that don't natively support it, the animation effect is removed for IE8, instead displaying the final value and final position of the arc. Any browsers that do support canvas natively will render the animation as normal when using *arcChart-ie8.js*.
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <script type="text/javascript" src="modernizr.js"></script>
-        <script type="text/javascript" src="excanvas.compiled.js"></script>
-    </head>
-    <body>
-        <div id="canvas"></div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-        <script src="arcChart-ie8.min.js"></script>
-        <script>
-            arcChart('canvas', 100);
-        </script>
-    </body>
-</html>
-```
-
-From my admittedly limited testing in the older versions of IE, this seems to display correctly all the way down to IE5.5 (should you ever feel the need to time-travel back to the year 2000).
 
 License
 -----

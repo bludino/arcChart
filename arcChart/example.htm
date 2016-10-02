@@ -4,32 +4,21 @@
 	<meta charset="utf-8">
 	<title>arcChart.js</title>
 	<style>
-		body {
-			background-color: #303030;
-		}
-
-		.canvas {
-			display: inline-block;
-			margin-right: 20px;
-		}
+		body {background-color: #303030;}
+		.canvas {margin-bottom: 90vh;}
+		.canvas:last-of-type {margin-bottom: 0;}
 	</style>
 </head>
 <body>
 	<div id="canvasOne" class="canvas"></div>
-	<div style="margin-top:1000px"></div>
 	<div id="canvasTwo" class="canvas"></div>
-	<div style="margin-top:1000px"></div>
 	<div id="canvasThree" class="canvas" ></div>
-
-	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 	<script src="jquery.waypoints.min.js"></script>
-	<script src="arcChart.js"></script>
+	<script src="arcChart.min.js"></script>
 	<script>
-
-
 		arcChart('canvasOne', 100);
 
 		arcChart('canvasTwo', 56, {
