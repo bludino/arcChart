@@ -71,7 +71,7 @@ var options = $.extend({
     numSeparator: true,        // Set whether number separators are displayed between each '000' { true || false }
     textPrefix: '',            // Add a prefix to the text { e.g. £ }
     textSuffix: '' ,           // Add a suffix to the text { e.g. % }
-    viewPortDelay: true        // Delays the animation of the arcChart until it enters the viewport { requires jquery.waypoints.js }
+    viewportDelay: true        // Delays the animation of the arcChart until it enters the viewport { requires jquery.waypoints.js }
 }, setOptions);
 ```
 
